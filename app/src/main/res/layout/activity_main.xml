@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="myViewModel"
+            type="mobi.audax.pierre.myfirstroominsert.UserViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="0dp"
+            android:hint="name"
+            android:text="@={myViewModel.inputName}"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="0dp"
+            android:hint="email"
+            android:text="@={myViewModel.inputEmail}"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextName" />
+
+        <Button
+            android:id="@+id/buttoninserir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="inserir"
+            android:onClick="@{()->myViewModel.insertUser()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextEmail" />
+
+        <Button
+            android:id="@+id/buttondeletar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="deletar"
+            android:onClick="@{()->myViewModel.deleteAl()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextEmail" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+            app:layout_constraintVertical_bias="0.253" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
